@@ -7,14 +7,14 @@ def random_character():
     choices = string.ascii_letters + string.digits + string.punctuation
     return random.choice(choices)
 
-passwordLength = int(input("How many characters long would you like the password to be? \n"))
+passwordLength = int(input("How many characters long would you like the (strong) password to be? \n"))
 
 # function that generate a password of random characters
 def generate_strong_password():
     password = ""
     for i in range(passwordLength):
         password = password + random_character()
-    print("Your new password is " + password)
+    print("Your new strong password is " + password)
 
 generate_strong_password()
 
@@ -27,4 +27,11 @@ def fetch_word():
     word = response.json()[0]
     return word 
 
-print(fetch_word())
+#function to generate  weaker but memorable password
+def generate_weaker_password():
+    word1 = fetch_word()
+    word2 = fetch_word()
+    password = word1 + word2
+    return "Your new weaker password is " + password 
+
+print(generate_weaker_password())
