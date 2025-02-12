@@ -31,7 +31,12 @@ def replaceLetters(word):
     word = word[0].upper() + word[1:]
     if "a" in word:
         word = word.replace("a", "@")
-
+    if "e" in word:
+        word = word.replace("e", "3")
+    if "b" in word:
+        word = word.replace("b", "6")
+    if "o" in word:
+        word = word.replace("o", "0")
     return word
 
 
@@ -39,9 +44,9 @@ def replaceLetters(word):
 def generate_weaker_password():
     word1 = fetch_word()
     word2 = fetch_word()
-    password = word1 + word2
     word1 = replaceLetters(word1)
     word2 = replaceLetters(word2)
+    password = word1 + word2
     return "Your new weaker password is " + password 
 
 print(generate_weaker_password())
